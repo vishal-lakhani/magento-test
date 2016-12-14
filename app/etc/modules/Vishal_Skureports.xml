@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Vishal_Skureports>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>      
+    </Vishal_Skureports>
+  </modules>
+</config>

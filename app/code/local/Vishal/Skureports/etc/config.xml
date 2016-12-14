@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Vishal_Skureports>
+      <version>0.1.0</version>
+      <depends>
+                <Mage_Adminhtml />
+                <Mage_Sales />
+            </depends>
+    </Vishal_Skureports>
+  </modules>
+  <global>
+    <helpers>
+      <skureports>
+        <class>Vishal_Skureports_Helper</class>
+      </skureports>
+    </helpers>
+    <blocks>
+            <skureports>
+                <class>Vishal_Skureports_Block</class>
+            </skureports>
+    </blocks>
+      <models>
+            <skureports>
+                <class>Vishal_Skureports_Model</class>
+                <resourceModel>skureports_mysql4</resourceModel>
+            </skureports>
+            <skureports_mysql4>
+                <class>Vishal_Skureports_Model_Mysql4</class>
+            </skureports_mysql4>
+        </models>
+  </global>
+  
+  <!--<admin>
+	<routers>
+	  <skureports>
+	    <use>admin</use>
+		<args>
+		  <module>Vishal_Skureports</module>
+		  <frontName>admin_skureports</frontName>
+		</args>
+	  </skureports>
+	</routers>
+  </admin>-->
+  
+  <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Vishal_Skureports before="Mage_Adminhtml">Vishal_Skureports_Adminhtml</Vishal_Skureports>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+  
+<adminhtml>	  	
+  <menu>
+      <report>
+        <children>
+          <salesroot translate="title">                    
+                    <children>                        
+                         <skureports translate="title" module="skureports">
+                            <title>Sales by SKU</title>
+                            <action>adminhtml/skureports</action>                                                        
+                            <sort_order>0</sort_order>
+                        </skureports>
+                    </children>
+          </salesroot>
+        </children>
+      </report>
+    </menu>    
+     <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <skureports>
+                                        <title>Sales by SKU</title>
+                                    </skureports>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <report>
+                        <children>
+                            <salesroot>
+                                <children>
+                                    <skureports translate="title">
+                                        <title>Sales by SKU</title>
+                                        <children>
+                                            <view translate="title">
+                                                <title>View</title>
+                                            </view>
+                                        </children>
+                                    </skureports>
+                                </children>
+                            </salesroot>
+                        </children>
+                    </report>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    
+<layout>
+	<updates>      
+          <skureports>
+                    <file>skureports.xml</file>
+            </skureports>       
+       </updates>
+</layout>		
+ </adminhtml>
+</config> 
